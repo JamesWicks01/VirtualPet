@@ -1,0 +1,21 @@
+
+
+#health {
+    accent-color: red;
+}
+
+#hunger {
+    accent-color: orange;
+}
+
+#tiredness {
+    accent-color: yellow;
+}
+
+#happiness {
+    accent-color: pink;
+}
+progress { 
+    width: 10em;
+    height: 2em;
+}

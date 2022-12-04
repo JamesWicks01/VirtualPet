@@ -12,4 +12,18 @@ function decreaseHungerValue() {
     
 }
 
+function decreaseTirednessValue() {
+    let petTiredness = document.querySelector('#tiredness').value--;
+    console.log(petTiredness);
+
+    if(petTiredness > 0) {
+        setTimeout(decreaseTirednessValue, 10000);
+    } else if (petTiredness === 0) {
+        petTiredness = 0;
+    } else {
+        console.error('Error with decreasingTirednessValue');
+    }
+}
+
 window.addEventListener('load', decreaseHungerValue);
+window.addEventListener('load', decreaseTirednessValue);

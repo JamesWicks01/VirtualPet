@@ -14,6 +14,10 @@ function decreaseHungerValue() {
     }
 }
 
+function increaseHungerValue() {
+    petHunger = 100;
+}
+
 function decreaseTirednessValue() {
     const out = document.querySelector('#tirednessValue');
     out.textContent = petTiredness--;
@@ -37,6 +41,14 @@ function decreaseHappinessValue() {
         console.error("Error with decreaseHappinessValue");
     }
 }
+
+function init() {
+    const Button = document.querySelector('#FeedMe');
+    Button.addEventListener('click', increaseHungerValue);
+}
+
+window.addEventListener('load', init);
+
 
 window.addEventListener('load', decreaseHungerValue);
 window.addEventListener('load', decreaseTirednessValue);

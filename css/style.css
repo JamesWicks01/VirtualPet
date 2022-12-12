@@ -48,3 +48,8 @@ main>header {
     grid-area: pethappiness;
     background-color: pink;
 }
+
+meter {
+    height:1.5em;
+    width:10em;
+}

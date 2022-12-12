@@ -1,25 +1,74 @@
 <!DOCTYPE html>
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="scripts/decreasePetStats.js"></script>
- <title>Virtual Pet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/svgStyle.css">
 
- <section>
-    <label for="health">Health</label>
-    <br>
-    <progress id="health" max="100" value="100"></progress>
-   <br>
-    <label for="hunger">Hunger</label>
-    <br>
-    <progress id="hunger" max="100" value="100"></progress>
-   <br>
-    <label for="tiredness">Tiredness</label>
-    <br>
-    <progress id="tiredness" max="100" value="100"></progress>
-   <br>
-    <label for="happiness">Happiness</label>
-    <br>
-    <progress id="happiness" max="100" value="100"></progress>
- </section>
+<script src="scripts/decreasePetStats.js"></script>
+<script src="scripts/feedingPet.js"></script>
+<title>Virtual Pet</title>
+
+<main>
+    <header>
+        <h1>Virtual Pet Coursework</h1>
+    </header>
+
+    <svg class="petscreen" width = "100vh" height="600" viewbox="-250 -550 500 700">
+
+        <!-- Body Section -->
+        <circle id="petbody" cx="0" cy="-120" r="150"></circle>
+        <circle id="innerpetbody" cx="0" cy="-120" r="100" class="lightgray"></circle>
+     
+        <!-- Leg Section -->
+        <circle id="leftleg" cx="-100" cy="0" r="30"></circle>
+        <circle id="rightleg" cx="100" cy="0" r="30"></circle>
+        <g id="leftpaw">
+           <circle cx="-100" cy="5" r="15" class="paw"></circle>
+           <circle cx="-110" cy="-7" r="7" class="paw"></circle>
+           <circle cx="-100" cy="-10" r="7" class="paw"></circle>
+           <circle cx="-90" cy="-7" r="7" class="paw"></circle>
+        </g>
+        <g id="rightpaw">
+           <circle cx="100" cy="5" r="15" class="paw"></circle>
+           <circle cx="110" cy="-7" r="7" class="paw"></circle>
+           <circle cx="100" cy="-10" r="7" class="paw"></circle>
+           <circle cx="90" cy="-7" r="7" class="paw"></circle>
+        </g>
+     
+     
+        <!-- Ear Section -->
+        <circle id="leftear" cx="-90" cy="-375" r="50"></circle>
+        <circle id="rightear" cx="90" cy="-375" r="50"></circle>
+        <circle id="leftinnerear" cx="-90" cy="-375" r="35" class="lightgray"></circle>
+        <circle id="rightinnerear" cx="90" cy="-375" r="35" class="lightgray"></circle>
+        
+        <!-- Head Section -->
+        <circle id="head" cx="0" cy="-300" r="125"></circle>
+        <circle id="lefteye" cx="-50" cy="-330" r="15" class="black"></circle>
+        <circle id="righteye" cx="50" cy="-330" r="15" class="black"></circle>
+        <g id="nose">
+           <rect width="30" height="70" x="-15" y="-300" class="black"></rect>
+        </g>
+     
+        <!-- Arm Section -->
+        <circle id="leftarm" cx="-150" cy="-175" r="30"></circle>
+        <circle id="rightarm" cx="150" cy="-175" r="30"></circle>
+      </svg>
+
+    <div class="health">
+        <label for="health">Health Bar</label>
+    </div>
+
+    <div class="hunger">
+        <label for="hunger">Hunger Bar</label>
+    </div>
+
+    <div class="tiredness">
+        <label for="tiredness">Tiredness Bar</label>
+    </div>
+    
+    <div class="happiness">
+        <label for="happiness">Happiness Bar</label>
+    </div>
+</main>

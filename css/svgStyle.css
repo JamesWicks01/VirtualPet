@@ -1,0 +1,19 @@
+
+ circle {
+    fill: grey;
+    stroke: black;
+    stroke-width: 0.5em;
+ }
+
+ .lightgray {
+    fill: lightgray;
+ }
+
+ .black {
+    fill:black
+ }
+
+ .paw {
+    fill: lightgrey;
+    stroke: none;
+ }

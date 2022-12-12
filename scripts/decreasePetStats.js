@@ -30,6 +30,10 @@ function decreaseTirednessValue() {
     }
 }
 
+function increaseTirednessValue() {
+    petTiredness = 100;
+}
+
 function decreaseHappinessValue() {
     const out = document.querySelector('#happinessValue');
     out.textContent = petHappiness--;
@@ -42,9 +46,19 @@ function decreaseHappinessValue() {
     }
 }
 
+function increaseHappinessValue() {
+    petHappiness = 100;
+}
+
 function init() {
     const Button = document.querySelector('#FeedMe');
     Button.addEventListener('click', increaseHungerValue);
+
+    const Button1 = document.querySelector('#GoToBed');
+    Button1.addEventListener('click', increaseTirednessValue);
+
+    const Button2 = document.querySelector('#PlayWithMe');
+    Button2.addEventListener('click', increaseHappinessValue);
 }
 
 window.addEventListener('load', init);

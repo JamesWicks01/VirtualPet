@@ -1,12 +1,11 @@
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2em 2fr 1fr;
+    grid-template-rows: 1fr 6fr;
 
-    grid-template-areas: "head head head head"
-                         "petscreen petscreen petscreen petscreen"
-                         "pethealth pethunger pettiredness pethappiness";
-    
+    grid-template-areas:
+                         "pethealth pethunger pettiredness pethappiness"
+                         "petscreen petscreen petscreen petscreen";
     height: 100vh;
     width: 100vw;
 }

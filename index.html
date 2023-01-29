@@ -3,88 +3,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/svgStyle.css">
-
-<script src="scripts/decreasePetStats.js"></script>
-<title>Virtual Pet</title>
-
 <main>
-    <header>
-        <h1>Virtual Pet Coursework</h1>
-    </header>
-
-    <svg class="petscreen" width = "100vh" height="600" viewbox="-250 -550 500 700">
-
-        <!-- Body Section -->
-        <circle id="petbody" cx="0" cy="-120" r="150"></circle>
-        <circle id="innerpetbody" cx="0" cy="-120" r="100" class="lightgray"></circle>
-     
-        <!-- Leg Section -->
-        <circle id="leftleg" cx="-100" cy="0" r="30"></circle>
-        <circle id="rightleg" cx="100" cy="0" r="30"></circle>
-        <g id="leftpaw">
-           <circle cx="-100" cy="5" r="15" class="paw"></circle>
-           <circle cx="-110" cy="-7" r="7" class="paw"></circle>
-           <circle cx="-100" cy="-10" r="7" class="paw"></circle>
-           <circle cx="-90" cy="-7" r="7" class="paw"></circle>
-        </g>
-        <g id="rightpaw">
-           <circle cx="100" cy="5" r="15" class="paw"></circle>
-           <circle cx="110" cy="-7" r="7" class="paw"></circle>
-           <circle cx="100" cy="-10" r="7" class="paw"></circle>
-           <circle cx="90" cy="-7" r="7" class="paw"></circle>
-        </g>
-     
-     
-        <!-- Ear Section -->
-        <circle id="leftear" cx="-90" cy="-375" r="50"></circle>
-        <circle id="rightear" cx="90" cy="-375" r="50"></circle>
-        <circle id="leftinnerear" cx="-90" cy="-375" r="35" class="lightgray"></circle>
-        <circle id="rightinnerear" cx="90" cy="-375" r="35" class="lightgray"></circle>
-        
-        <!-- Head Section -->
-        <circle id="head" cx="0" cy="-300" r="125"></circle>
-        <circle id="lefteye" cx="-50" cy="-330" r="15" class="black"></circle>
-        <circle id="righteye" cx="50" cy="-330" r="15" class="black"></circle>
-        <g id="nose">
-           <rect width="30" height="70" x="-15" y="-300" class="black"></rect>
-        </g>
-     
-        <!-- Arm Section -->
-        <circle id="leftarm" cx="-150" cy="-175" r="30"></circle>
-        <circle id="rightarm" cx="150" cy="-175" r="30"></circle>
-      </svg>
-
+    <img class="petscreen" src="assets/koala.svg" alt="Koala SVG" height="400em">
+    
     <div class="health">
-        <label for="health">Health Bar</label>
-        <br>
-        <output id="healthValue">?</output>
+        <p>Health Bar</p>
+        <meter id="healthValue" 
+        min="0" max="100"
+        value="0"></meter>
     </div>
 
     <div class="hunger">
-        <label for="hunger">Hunger Bar</label>
-        <br>
-        <!-- <meter id="hungerValue" 
-               min="0" max="100"
-               value="100"></meter> -->
-        <output id="hungerValue">?</output>
-        <br>
-        <button id="FeedMe"><img height="50em" src="dog-bowl.png" alt="Dog Bowl"></button>
+        <p>Hunger Bar</p>
+        <meter id="hungerValue" 
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="happiness">
+        <p>Happiness Bar</p>
+        <meter id="happinessValue" 
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="cleanliness">
+        <p>Cleanliness Bar</p>
+        <meter id="cleanlinessValue" 
+        min="0" max="100"
+        value="0"></meter>
     </div>
 
     <div class="tiredness">
-        <label for="tiredness">Tiredness Bar</label>
-        <br>
-        <output id="tirednessValue">?</output>
-        <br>
-        <button id="GoToBed"><img height="50em" src="blanket.png" alt="Blanket"></button>
+        <p>Tiredness Bar</p>
+        <meter id="tirednessValue" 
+        min="0" max="100"
+        value="0"></meter>
     </div>
-    
-    <div class="happiness">
-        <label for="happiness">Happiness Bar</label>
-        <br>
-        <output id="happinessValue">?</output>
-        <br>
-        <button id="PlayWithMe"><img height="50em" src="beach-ball.png" alt="Beach Ball"></button>
-    </div>
+
+
+
+
+    <p class="pet">Pet</p>
+    <p class="play">Play</p>
+    <p class="feed">Feed</p>
+    <p class="bath">Bath</p>
+    <p class="sleep">Sleep</p>
 </main>

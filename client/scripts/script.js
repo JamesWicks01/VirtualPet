@@ -18,6 +18,9 @@ function displayHungerValue() {
 
 function decreaseHungerValue() {
    petHunger = petHunger - 1;
+   if (petHunger < 0) {
+      petHunger = 0;
+   }
    displayHungerValue();
 }
 
@@ -38,6 +41,9 @@ function feedPet() {
 
  function decreaseHappinessValue() {
    petHappiness = petHappiness - 1;
+   if (petHappiness < 0) {
+      petHappiness = 0;
+   }
    displayHappinessValue();
 }
 
@@ -58,6 +64,9 @@ function playPet() {
 
  function decreaseCleanlinessValue() {
    petCleanliness = petCleanliness - 1;
+   if (petCleanliness < 0) {
+      petCleanliness = 0;
+   }
    displayCleanlinessValue();
 }
 
@@ -78,6 +87,9 @@ function bathPet() {
 
  function decreaseTirednessValue() {
    petTiredness = petTiredness - 1;
+   if (petTiredness < 0) {
+      petTiredness = 0;
+   }
    displayTirednessValue();
 }
 

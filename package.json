@@ -1,0 +1,25 @@
+{
+  "name": "virtualpet",
+  "version": "1.0.0",
+  "description": "Coursework for Year 1 in Applicational Programming for Bsc (Hons) Software Engineering Degree",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesWicks01/VirtualPet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesWicks01/VirtualPet/issues"
+  },
+  "homepage": "https://github.com/JamesWicks01/VirtualPet#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

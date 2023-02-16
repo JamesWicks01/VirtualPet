@@ -1,4 +1,4 @@
-const petHealth = 100;
+let petHealth = 100;
 let petHunger = 100;
 let petHappiness = 100;
 let petCleanliness = 100;
@@ -29,6 +29,17 @@ function displayPetValue(element, petValue) {
 
 
 // Functions that will decrease the pet's values
+// Function that decrease the pet's values health value by one and will stay at zero when the value hits zero when the pet's hunger goes to zero
+function decreaseHealthValue() {
+  if (petHunger === 0) {
+    petHealth = petHealth - 1;
+    if (petHealth < 0) {
+      petHealth = 0;
+    }
+  }
+  displayPetValue('#healthValue', petHealth);
+}
+
 // Function that decreases the pet's hunger value by one and will stay at zero when the value hits zero
 function decreaseHungerValue() {
   petHunger = petHunger - 1;
@@ -64,7 +75,6 @@ function decreaseTirednessValue() {
   }
   displayPetValue('#tirednessValue', petTiredness);
 }
-
 
 // Fucntions that increase the pet's values
 // Function that increases the pet's hungry value by ten and will stay at 101 when the value hits 100
@@ -107,7 +117,15 @@ function sleepPet() {
   decreaseTirednessValue();
 }
 
-// Fucntion to save the pet's values
+// Pet Death Alert
+function displayPetDeathAlert() {
+  if (petHealth === 0) {
+    const myImage = document.querySelector('#pet');
+    myImage.src = 'assets/grave-stone.svg';
+  }
+}
+
+// Function to save the pet's values
 function savePetValues() {
   localStorage.clear();
   localStorage.setItem('health', petHealth);
@@ -116,7 +134,6 @@ function savePetValues() {
   localStorage.setItem('cleanliness', petCleanliness);
   localStorage.setItem('tiredness', petTiredness);
 }
-
 
 // Function to make the buttons on the page functional
 function button() {
@@ -140,11 +157,12 @@ function init() {
   displayPetValue('#happinessValue', petHappiness);
   displayPetValue('#cleanlinessValue', petCleanliness);
   displayPetValue('#tirednessValue', petTiredness);
+  setInterval(decreaseHealthValue, 1000);
   setInterval(decreaseHungerValue, 1000);
   setInterval(decreaseHappinessValue, 1000);
   setInterval(decreaseCleanlinessValue, 1000);
   setInterval(decreaseTirednessValue, 1000);
-
+  setInterval(displayPetDeathAlert, 1000);
   setInterval(savePetValues, 10000);
 }
 

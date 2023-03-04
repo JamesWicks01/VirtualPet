@@ -5,40 +5,47 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="scripts/script.js"></script>
 <main>
+    <h2 class="petname" id="name">Pet Name</h2>
+    <input 
+        id=namechange
+        type=text
+        class=changename
+        placeholder="Chnage Your Pet Name Here">
+
     <img class="petscreen" src="assets/outback.jpg" alt="Outback" height="600em" width="1280em">
     <img class="petscreen" id='pet' src="assets/koala.svg" alt="Koala SVG" height="300em">
     
     <div class="health">
-        <p>Health Bar</p>
+        <p>Health</p>
         <meter id="healthValue" 
         min="0" max="100"
         value="0"></meter>
     </div>
 
     <div class="hunger">
-        <p>Hunger Bar</p>
+        <p>Hunger</p>
         <meter id="hungerValue" 
         min="0" max="100"
         value="0"></meter>
     </div>
 
     <div class="happiness">
-        <p>Happiness Bar</p>
+        <p>Happiness</p>
         <meter id="happinessValue" 
         min="0" max="100"
         value="0"></meter>
     </div>
 
     <div class="cleanliness">
-        <p>Cleanliness Bar</p>
+        <p>Cleanliness</p>
         <meter id="cleanlinessValue" 
         min="0" max="100"
         value="0"></meter>
     </div>
 
-    <div class="tiredness">
-        <p>Tiredness Bar</p>
-        <meter id="tirednessValue" 
+    <div class="energy">
+        <p>Energy</p>
+        <meter id="energyValue" 
         min="0" max="100"
         value="0"></meter>
     </div>
@@ -46,29 +53,23 @@
 
 
 
-    <p class="pet">Pet</p>
+    <div class="exit">
+        <button id="exit">Exit</button>
+    </div>
 
     <div class="play">
-        <p>Play</p>
-        <br>
-        <button id="play"><img height="75em" src="assets/play.png" alt="Tennis Ball"></button>
+        <button id="play">Play</button>
     </div>
 
     <div class="feed">
-        <p>Feed</p>
-        <br>
-        <button id="feed"><img height="75em" src="assets/food.jpg" alt="Tree Leafs"></button>
+        <button id="feed">Feed</button>
     </div>
 
     <div class="bath">
-        <p>Bath</p>
-        <br>
-        <button id="bath"><img height="75em" src="assets/bath.png" alt="Soap"></button>
+        <button id="bath">Clean</button>
     </div>
 
     <div class="sleep">
-        <p>Sleep</p>
-        <br>
-        <button id="sleep"><img height="75em" src="assets/sleep.png" alt="Blanket"></button>
+        <button id="sleep">Sleep</button>
     </div>
 </main>

@@ -1,169 +1,108 @@
-let petHealth = 100;
-let petHunger = 100;
-let petHappiness = 100;
-let petCleanliness = 100;
-let petTiredness = 100;
+const pet = {
+  aliveTime: 0,
+  name: 'My Pet',
+};
+
+const petValues = {
+  health: 100,
+  hunger: 100,
+  cleanliness: 100,
+  energy: 100,
+};
+
+const happiness = () => {
+  return Math.min(petValues.health, petValues.hunger, petValues.cleanliness, petValues.energy);
+};
 
 // Function to display the pet's values on the screen
-function displayPetValue(element, petValue) {
-  const output = document.querySelector(element);
-  output.value = petValue;
-}
-
-// function decreasePetValue(petValue, decreaseValue, valueLimit, element) {
-//    petValue = petValue - decreaseValue;
-//    if (petValue < valueLimit) {
-//       petValue = valueLimit;
-//    }
-//    displayPetValue(element, petValue);
-
-// }
-
-// function increasePetValue(petValue, increaseValue, valueLimit, element) {
-//    petValue = petValue + increaseValue;
-//    if (petValue > valueLimit) {
-//       petValue = valueLimit;
-//    }
-//    displayPetValue(element, petValue);
-// }
-
-
-// Functions that will decrease the pet's values
-// Function that decrease the pet's values health value by one and will stay at zero when the value hits zero when the pet's hunger goes to zero
-function decreaseHealthValue() {
-  if (petHunger === 0) {
-    petHealth = petHealth - 1;
-    if (petHealth < 0) {
-      petHealth = 0;
-    }
+function displayPetValue() {
+  for (const [attr, value] of Object.entries(petValues)) {
+    const output = document.querySelector(`#${attr}Value`);
+    output.value = value;
   }
-  displayPetValue('#healthValue', petHealth);
+  const happinessOutput = document.querySelector('#happinessValue');
+  happinessOutput.value = happiness();
+}
+// Function to decrease the pet's values
+function decreaseAttr(attr, decreaseValue) {
+  petValues[attr] = Math.max(petValues[attr] - decreaseValue, 0);
+  displayPetValue();
 }
 
-// Function that decreases the pet's hunger value by one and will stay at zero when the value hits zero
-function decreaseHungerValue() {
-  petHunger = petHunger - 1;
-  if (petHunger < 0) {
-    petHunger = 0;
-  }
-  displayPetValue('#hungerValue', petHunger);
+// Function to increase the pet's values
+function increaseAttr(attr, increaseValue) {
+  petValues[attr] = Math.min(petValues[attr] + increaseValue, 100);
+  displayPetValue();
 }
 
-// Function that decreases the pet's happiness value by one and will stay at zero when the value hits zero
-function decreaseHappinessValue() {
-  petHappiness = petHappiness - 1;
-  if (petHappiness < 0) {
-    petHappiness = 0;
-  }
-  displayPetValue('#happinessValue', petHappiness);
-}
-
-// Function that decreases the pet's cleanliness value by one and will stay at zero when the value hits zero
-function decreaseCleanlinessValue() {
-  petCleanliness = petCleanliness - 1;
-  if (petCleanliness < 0) {
-    petCleanliness = 0;
-  }
-  displayPetValue('#cleanlinessValue', petCleanliness);
-}
-
-// Function that decreases the pet's tiredness value by one and will stay at zero when the value hits zero
-function decreaseTirednessValue() {
-  petTiredness = petTiredness - 1;
-  if (petTiredness < 0) {
-    petTiredness = 0;
-  }
-  displayPetValue('#tirednessValue', petTiredness);
-}
-
-// Fucntions that increase the pet's values
-// Function that increases the pet's hungry value by ten and will stay at 101 when the value hits 100
-function feedPet() {
-  petHunger = petHunger + 10;
-  if (petHunger > 100) {
-    petHunger = 101;
-  }
-  displayPetValue('#hungerValue', petHunger);
-  decreaseHungerValue();
-}
-
-// Function that increases the pet's happiness value by 10 and will stay at 101 when the value hits 100
-function playPet() {
-  petHappiness = petHappiness + 10;
-  if (petHappiness > 100) {
-    petHappiness = 101;
-  }
-  displayPetValue('#happinessValue', petHappiness);
-  decreaseHappinessValue();
-}
-
-// Function that increases the pet's cleanliness value by 10 and will stay at 100 when the value hits 100
-function bathPet() {
-  petCleanliness = petCleanliness + 10;
-  if (petCleanliness > 100) {
-    petCleanliness = 101;
-  }
-  displayPetValue('#cleanlinessValue', petCleanliness);
-  decreaseCleanlinessValue();
-}
-
-// Function that increases the pet's cleanliness value by 10 and will stay at 100 when the value hits 100
-function sleepPet() {
-  petTiredness = petTiredness + 10;
-  if (petTiredness > 100) {
-    petTiredness = 101;
-  }
-  displayPetValue('#tirednessValue', petTiredness);
-  decreaseTirednessValue();
-}
+//
 
 // Pet Death Alert
 function displayPetDeathAlert() {
-  if (petHealth === 0) {
+  if (petValues.health === 0) {
     const myImage = document.querySelector('#pet');
     myImage.src = 'assets/grave-stone.svg';
+    setTimeout(500);
+    window.alert('Your Pet has survived for ' + pet.aliveTime + ' minutes');
   }
 }
+
+// Function to get how long the pet is alive
+function petAlive() {
+  pet.aliveTime = pet.aliveTime + 1;
+}
+
+// Function to set the pet's name and display it on the screen
+function handleInput(e) {
+  const output = document.querySelector('#name');
+  pet.name = e.target.value;
+  output.textContent = e.target.value;
+}
+
 
 // Function to save the pet's values
 function savePetValues() {
   localStorage.clear();
-  localStorage.setItem('health', petHealth);
-  localStorage.setItem('hunger', petHunger);
-  localStorage.setItem('happiness', petHappiness);
-  localStorage.setItem('cleanliness', petCleanliness);
-  localStorage.setItem('tiredness', petTiredness);
+  localStorage.name = JSON.stringify(pet);
+  localStorage.value = JSON.stringify(petValues);
 }
 
 // Function to make the buttons on the page functional
 function button() {
-  const PetFeed = document.querySelector('#feed');
-  PetFeed.addEventListener('click', feedPet);
+  const FeedPet = document.querySelector('#feed');
+  FeedPet.addEventListener('click', () => {
+    increaseAttr('hunger', 10);
+  });
 
-  const PetPlay = document.querySelector('#play');
-  PetPlay.addEventListener('click', playPet);
+  const BathPet = document.querySelector('#bath');
+  BathPet.addEventListener('click', () => {
+    increaseAttr('cleanliness', 10);
+  });
 
-  const PetBath = document.querySelector('#bath');
-  PetBath.addEventListener('click', bathPet);
+  const SleepPet = document.querySelector('#sleep');
+  SleepPet.addEventListener('click', () => {
+    increaseAttr('energy', 10);
+  });
 
-  const PetSleep = document.querySelector('#sleep');
-  PetSleep.addEventListener('click', sleepPet);
+  // const PetPlay = document.querySelector('#play');
+  // PetPlay.addEventListener('click', playPet);
 }
 
 // Fucntion that holds all the function that need to be executed on page loaded
 function init() {
-  displayPetValue('#healthValue', petHealth);
-  displayPetValue('#hungerValue', petHunger);
-  displayPetValue('#happinessValue', petHappiness);
-  displayPetValue('#cleanlinessValue', petCleanliness);
-  displayPetValue('#tirednessValue', petTiredness);
-  setInterval(decreaseHealthValue, 1000);
-  setInterval(decreaseHungerValue, 1000);
-  setInterval(decreaseHappinessValue, 1000);
-  setInterval(decreaseCleanlinessValue, 1000);
-  setInterval(decreaseTirednessValue, 1000);
+  displayPetValue();
+  setInterval(decreaseAttr, 2000, 'hunger', 1);
+  setInterval(decreaseAttr, 6000, 'cleanliness', 1);
+  setInterval(decreaseAttr, 6000, 'energy', 1);
   setInterval(displayPetDeathAlert, 1000);
   setInterval(savePetValues, 10000);
+  setInterval(petAlive, 60000);
+  // Changes name of pet
+  const namechange = document.querySelector('#namechange');
+  namechange.addEventListener('input', handleInput);
+  // Local Storage retrive the data
+  const pet = JSON.parse(localStorage.pet);
+  const petValues = JSON.parse(localStorage.petValues);
 }
 
 

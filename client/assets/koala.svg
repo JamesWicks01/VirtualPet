@@ -39,11 +39,13 @@
 </g> 
 <g> 
 <g> 
-<g> 
+<g id="eyes"> 
+<!-- Left Eye -->
 <circle style="fill-rule:evenodd;clip-rule:evenodd;fill:#434849;" cx="42.522" cy="39.882" r="4.074"/> 
 <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;" d="M42.693,39.095c0-0.85,0.686-1.541,1.538-1.541 s1.538,0.692,1.538,1.541c0,0.852-0.686,1.542-1.538,1.542S42.693,39.946,42.693,39.095z"/> 
-</g> 
-<g> 
+</g>
+<g id="eyes"> 
+<!-- Right Eye -->
 <circle style="fill-rule:evenodd;clip-rule:evenodd;fill:#434849;" cx="80.027" cy="39.882" r="4.074"/> 
 <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;" d="M80.198,39.095c0-0.85,0.687-1.541,1.539-1.541 c0.853,0,1.538,0.692,1.538,1.541c0,0.852-0.686,1.542-1.538,1.542C80.885,40.637,80.198,39.946,80.198,39.095z"/> </g> </g> <g> <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#434849;" d="M68.598,55.45c0,3.12-2.529,5.649-5.65,5.649h-2.823 c-3.121,0-5.65-2.529-5.65-5.649V41.458c0-3.121,2.529-5.65,5.65-5.65h2.823c3.121,0,5.65,2.529,5.65,5.65V55.45z"/> 
 <g> 

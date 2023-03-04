@@ -1,14 +1,15 @@
 main {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
     grid-template-areas:
+                        "petname petname changename changename changename changename"
                          "petscreen petscreen petscreen petscreen petscreen health" 
                          "petscreen petscreen petscreen petscreen petscreen hunger" 
                          "petscreen petscreen petscreen petscreen petscreen happiness"  
                          "petscreen petscreen petscreen petscreen petscreen cleanliness"  
-                         "pet play feed bath sleep tiredness";
+                         "exit play feed bath sleep energy";
     
     height: 100vh;
     width: 100vw;
@@ -18,6 +19,31 @@ main {
     margin: 0;
     padding:0;
     text-align: center;
+}
+
+button {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.petname {
+    grid-area: petname;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.changename {
+    grid-area: changename;
+    margin-top: 0.5em;
 }
 
 .petscreen {
@@ -46,32 +72,37 @@ main {
     /* border: 0.5em solid; */
 }
 
-.tiredness {
-    grid-area: tiredness;
+.energy {
+    grid-area: energy;
     /* border: 0.5em solid; */
 }
 
-.pet {
-    grid-area: pet;
+.exit {
+    margin: auto;
+    grid-area: exit;
     /* border: 0.5em solid; */
 }
 
 .play {
     grid-area: play;
+    margin: auto;
     /* border: 0.5em solid; */
 }
 
 .feed {
     grid-area: feed;
+    margin: auto;
     /* border: 0.5em solid; */
 }
 
 .bath {
+    margin: auto;
     grid-area: bath;
     /* border: 0.5em solid; */
 }
 
 .sleep {
+    margin: auto;
     grid-area: sleep;
     /* border: 0.5em solid; */
 }
@@ -79,4 +110,9 @@ main {
 meter {
     height:1.5em;
     width:10em;
+}
+
+input {
+    width: 25em;
+    height: 4em;
 }

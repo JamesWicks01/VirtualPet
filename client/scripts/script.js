@@ -35,7 +35,14 @@ function increaseAttr(attr, increaseValue) {
   displayPetValue();
 }
 
-//
+// Function to decrease and increase the pet's health value
+function petHealth() {
+  if (petValues.hunger <= 10) {
+    decreaseAttr('health', 1);
+  } else if (petValues.hunger >= 80) {
+    increaseAttr('health', 1);
+  }
+}
 
 // Pet Death Alert
 function displayPetDeathAlert() {
@@ -97,12 +104,13 @@ function init() {
   setInterval(displayPetDeathAlert, 1000);
   setInterval(savePetValues, 10000);
   setInterval(petAlive, 60000);
+  setInterval(petHealth, 1000);
   // Changes name of pet
   const namechange = document.querySelector('#namechange');
   namechange.addEventListener('input', handleInput);
-  // Local Storage retrive the data
-  const pet = JSON.parse(localStorage.pet);
-  const petValues = JSON.parse(localStorage.petValues);
+  // Display the default pet's name when page is loaded
+  const petName = document.querySelector('#name');
+  petName.textContent = pet.name;
 }
 
 

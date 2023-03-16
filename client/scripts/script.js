@@ -49,6 +49,8 @@ function displayPetDeathAlert() {
   if (petValues.health === 0) {
     const myImage = document.querySelector('#pet');
     myImage.src = 'assets/grave-stone.svg';
+    const element = document.querySelectorAll('button');
+    element.remove();
     // setTimeout(500);
     // window.alert('Your Pet has survived for ' + pet.aliveTime + ' minutes');
   }

@@ -148,7 +148,7 @@ input {
     stroke-width: 0.1em;
  }
 
- #koala-eye {
+ #koala-eyes{
     animation: blinking 5s infinite;
   }
   

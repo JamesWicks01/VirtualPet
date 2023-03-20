@@ -129,19 +129,6 @@ input {
     stroke-width: 0.1em;
  }
 
- .outeye {
-    fill:lightgray;
-    stroke: black;
-    stroke-width: 0.1em;
-
- }
-
- .innereye { 
-    fill: white;
-    stroke: black;
-    stroke-width: 0.1em;
- }
-
  .nose {
     fill:rgb(73, 71, 71);
     stroke: black;

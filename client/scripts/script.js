@@ -1,9 +1,9 @@
-const pet = {
+let pet = {
   aliveTime: 0,
   name: 'My Pet',
 };
 
-const petValues = {
+let petValues = {
   health: 100,
   hunger: 100,
   cleanliness: 100,
@@ -47,12 +47,25 @@ function petHealth() {
 // Pet Death Alert
 function displayPetDeathAlert() {
   if (petValues.health === 0) {
-    const myImage = document.querySelector('#pet');
-    myImage.src = 'assets/grave-stone.svg';
-    const element = document.querySelectorAll('button');
-    element.remove();
-    // setTimeout(500);
-    // window.alert('Your Pet has survived for ' + pet.aliveTime + ' minutes');
+    window.location.replace('deathscreen.html');
+  }
+}
+
+function savePetValues() {
+  localStorage.name = JSON.stringify(pet);
+  localStorage.values = JSON.stringify(petValues);
+  console.log(localStorage.length);
+  console.log('SAVED VALUES');
+}
+
+function loadPetValues() {
+  if (localStorage.length > 0) {
+    pet = JSON.parse(localStorage.getItem('name'));
+    petValues = JSON.parse(localStorage.getItem('values'));
+    console.log(localStorage.length);
+    console.log('LOADED VALUES');
+  } else {
+    console.log('NO VALUES TO LOAD');
   }
 }
 
@@ -66,14 +79,6 @@ function handleInput(e) {
   const output = document.querySelector('#name');
   pet.name = e.target.value;
   output.textContent = e.target.value;
-}
-
-
-// Function to save the pet's values
-function savePetValues() {
-  localStorage.clear();
-  localStorage.name = JSON.stringify(pet);
-  localStorage.value = JSON.stringify(petValues);
 }
 
 // Function to make the buttons on the page functional
@@ -100,6 +105,7 @@ function button() {
 // Fucntion that holds all the function that need to be executed on page loaded
 function init() {
   displayPetValue();
+  loadPetValues();
   setInterval(decreaseAttr, 2000, 'hunger', 1);
   setInterval(decreaseAttr, 6000, 'cleanliness', 1);
   setInterval(decreaseAttr, 6000, 'energy', 1);

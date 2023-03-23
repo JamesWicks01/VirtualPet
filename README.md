@@ -1,5 +1,5 @@
 # VirtualPet
-Coursework for Year 1 in Applicational Programming for Bsc (Hons) Software Engineering Degree 
+Coursework for Year 1 in Applicational Programming for Bsc (Hons) Software Engineering Degree By UP2122177
 
 # Setup
 1. Unzip the folder and open the folder in your terminal
@@ -11,3 +11,4 @@ Coursework for Year 1 in Applicational Programming for Bsc (Hons) Software Engin
 
 
 # Future Features
+- Google Sign In feature with a database to store a users pet so it can be accessed on another device.

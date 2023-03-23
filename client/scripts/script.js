@@ -1,6 +1,6 @@
 let pet = {
   aliveTime: 0,
-  name: 'My Pet',
+  name: 'My Virtual Pet',
 };
 
 let petValues = {

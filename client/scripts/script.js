@@ -47,7 +47,8 @@ function petHealth() {
 // Pet Death Alert
 function displayPetDeathAlert() {
   if (petValues.health === 0) {
-    window.location.replace('deathscreen.html');
+    savePetValues();
+    window.location = 'deathscreen.html';
   }
 }
 
@@ -96,6 +97,11 @@ function button() {
   const SleepPet = document.querySelector('#sleep');
   SleepPet.addEventListener('click', () => {
     increaseAttr('energy', 10);
+  });
+
+  const ExitPet = document.querySelector('#exit');
+  ExitPet.addEventListener('click', () => {
+    window.location = '/';
   });
 
   // const PetPlay = document.querySelector('#play');

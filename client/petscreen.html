@@ -1,14 +1,21 @@
 <!DOCTYPE html>
+
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="css/style.css">
-<script src="scripts/start.js"></script>
+<script src="scripts/script.js"></script>
+<main>
+    <h2 class="petname" id="name"></h2>
+    
+    <input 
+    id=namechange
+    type=text
+    class=changename
+    maxlength="32"
+    placeholder="Change Your Pet Name Here">
 
-<h1>Your Virtual Pet</h1>
-<br>
-<svg class="petscreen" width = "400px" height="400px" viewbox="0 0 140.021 130.021">
+    <img class="petscreen" src="assets/outback.jpg" alt="Outback" height="600em" width="1280em">
+    <svg class="petscreen" width = "300px" height="300px" viewbox="0 0 140.021 130.021">
 
     <defs>
         <g id="koala-eyes">
@@ -46,5 +53,69 @@
 
     </g>
     </svg>
-<br>
-<button id="start">Start</button>
+
+
+    
+    <div class="health">
+        <p>Health</p>
+        <meter id="healthValue" 
+        low="30" high="60" optimum="80"
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="hunger">
+        <p>Hunger</p>
+        <meter id="hungerValue"
+        low="30" high="60" optimum="80"
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="happiness">
+        <p>Happiness</p>
+        <meter id="happinessValue"
+        low="30" high="60" optimum="80"
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="cleanliness">
+        <p>Cleanliness</p>
+        <meter id="cleanlinessValue" 
+        low="30" high="60" optimum="80"
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+    <div class="energy">
+        <p>Energy</p>
+        <meter id="energyValue" 
+        low="30" high="60" optimum="80"
+        min="0" max="100"
+        value="0"></meter>
+    </div>
+
+
+
+
+    <div class="exit">
+        <button id="exit">Exit</button>
+    </div>
+
+    <div class="play">
+        <button id="play">Play</button>
+    </div>
+
+    <div class="feed">
+        <button id="feed">Feed</button>
+    </div>
+
+    <div class="bath">
+        <button id="bath">Clean</button>
+    </div>
+
+    <div class="sleep">
+        <button id="sleep">Sleep</button>
+    </div>
+</main>

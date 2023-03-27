@@ -1,3 +1,5 @@
+// A Basic Static Web Server
+
 import express from 'express';
 
 const app = express();

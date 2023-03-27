@@ -1,6 +1,7 @@
 let pet = {
   aliveTime: 0,
   name: 'My Virtual Pet',
+  deathtype: 'Unknown',
 };
 
 let petValues = {
@@ -44,14 +45,27 @@ function petHealth() {
   }
 }
 
-// Pet Death Alert
+// Function to determine the pet's cause of death
+function determineCauseOfDeath() {
+  if (petValues.hunger === 0) {
+    pet.deathtype = 'Starvation';
+  } else if (petValues.energy === 0) {
+    pet.deathtype = 'Lack of Sleep';
+  } else {
+    pet.deathtype = 'Unknown';
+  }
+}
+
+// Function to when the health value = 0 to display the pet's death screen
 function displayPetDeathAlert() {
   if (petValues.health === 0) {
+    determineCauseOfDeath();
     savePetValues();
     window.location = 'deathscreen.html';
   }
 }
 
+// Function to save pet values and name in local storage
 function savePetValues() {
   localStorage.name = JSON.stringify(pet);
   localStorage.values = JSON.stringify(petValues);
@@ -59,6 +73,7 @@ function savePetValues() {
   console.log('SAVED VALUES');
 }
 
+// Function to load pet values and name from local storage
 function loadPetValues() {
   if (localStorage.length > 0) {
     pet = JSON.parse(localStorage.getItem('name'));
@@ -102,6 +117,7 @@ function button() {
   const ExitPet = document.querySelector('#exit');
   ExitPet.addEventListener('click', () => {
     window.location = '/';
+    savePetValues();
   });
 
   // const PetPlay = document.querySelector('#play');

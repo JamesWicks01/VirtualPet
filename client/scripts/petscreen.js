@@ -15,7 +15,7 @@ const happiness = () => {
   return Math.min(petValues.health, petValues.hunger, petValues.cleanliness, petValues.energy);
 };
 
-// Function to display the pet's values on the screen
+// Function to display the pet's values in a meter element on the pet screen.
 function displayPetValue() {
   for (const [attr, value] of Object.entries(petValues)) {
     const output = document.querySelector(`#${attr}Value`);
@@ -24,19 +24,20 @@ function displayPetValue() {
   const happinessOutput = document.querySelector('#happinessValue');
   happinessOutput.value = happiness();
 }
-// Function to decrease the pet's values
+// Function to decrease the pet's values with the value never going below zero.
 function decreaseAttr(attr, decreaseValue) {
   petValues[attr] = Math.max(petValues[attr] - decreaseValue, 0);
   displayPetValue();
 }
 
-// Function to increase the pet's values
+// Function to increase the pet's values with the value never going above one hundred.
 function increaseAttr(attr, increaseValue) {
   petValues[attr] = Math.min(petValues[attr] + increaseValue, 100);
   displayPetValue();
 }
 
-// Function to decrease and increase the pet's health value
+// Function to decrease the pet's health when the hunger is below ten and to
+// increase the pet's health when the hunger is above eighty.
 function petHealth() {
   if (petValues.hunger <= 10) {
     decreaseAttr('health', 1);
@@ -45,7 +46,7 @@ function petHealth() {
   }
 }
 
-// Function to determine the pet's cause of death
+// Function to determine the pet's cause of death.
 function determineCauseOfDeath() {
   if (petValues.hunger === 0) {
     pet.deathtype = 'Starvation';
@@ -56,7 +57,7 @@ function determineCauseOfDeath() {
   }
 }
 
-// Function to when the health value = 0 to display the pet's death screen
+// Function to when the health value equals to zero then the user is redirected to the pet's death screen.
 function displayPetDeathAlert() {
   if (petValues.health === 0) {
     determineCauseOfDeath();
@@ -65,7 +66,7 @@ function displayPetDeathAlert() {
   }
 }
 
-// Function to save pet values and name in local storage
+// Function to save all the values of the pet in local storage in a JSON format.
 function savePetValues() {
   localStorage.name = JSON.stringify(pet);
   localStorage.values = JSON.stringify(petValues);
@@ -73,7 +74,7 @@ function savePetValues() {
   console.log('SAVED VALUES');
 }
 
-// Function to load pet values and name from local storage
+// Function to load pet values from local storage when there is someting in local storage.
 function loadPetValues() {
   if (localStorage.length > 0) {
     pet = JSON.parse(localStorage.getItem('name'));
@@ -85,7 +86,7 @@ function loadPetValues() {
   }
 }
 
-// Function to get how long the pet is alive
+// Function to state the time the pet has been alive for.
 function petAlive() {
   pet.aliveTime = pet.aliveTime + 1;
 }

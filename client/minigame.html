@@ -1,15 +1,14 @@
 <!DOCTYPE html>
+
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="css/style.css">
-<script src="scripts/startscreen.js"></script>
+<script src="scripts/minigame.js"></script>
 
-
-    <h1>Your Virtual Pet</h1>
+    <h1 class="title">Virtual Pet Minigame</h1>
     <br>
-    <svg width = "400px" height="400px" viewbox="0 0 140.021 130.021">
+    <svg width = "300px" height="300px" viewbox="0 0 140.021 130.021">
 
         <defs>
             <g id="koala-eyes">
@@ -44,6 +43,20 @@
             <path class="nose" d="M68.598,55.45c0,3.12-2.529,5.649-5.65,5.649h-2.823 c-3.121,0-5.65-2.529-5.65-5.649V41.458c0-3.121,2.529-5.65,5.65-5.65h2.823c3.121,0,5.65,2.529,5.65,5.65V55.45z"/> 
 
         </g>
-        </svg>
+    </svg>
     <br>
-    <button id="start">Start</button>
+    <h3 class="playerScoreTitle">Your Score</h3>
+    <br>
+    <p id="playerScoreBoard">0</p>
+    <br>
+    <h3 class="petScoreTitle">Your Pet's Score</h3>
+    <br>
+    <p id="computerScoreBoard">0</p>
+    <br>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <br>
+    <p id="result"></p>
+    <br>
+    <button id="exit">Exit to Pet Screen</button>

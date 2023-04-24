@@ -107,12 +107,12 @@ function button() {
 
   const BathPet = document.querySelector('#bath');
   BathPet.addEventListener('click', () => {
-    increaseAttr('cleanliness', 10);
+    increaseAttr('cleanliness', 20);
   });
 
   const SleepPet = document.querySelector('#sleep');
   SleepPet.addEventListener('click', () => {
-    increaseAttr('energy', 10);
+    increaseAttr('energy', 30);
   });
 
   const ExitPet = document.querySelector('#exit');
@@ -121,8 +121,11 @@ function button() {
     savePetValues();
   });
 
-  // const PetPlay = document.querySelector('#play');
-  // PetPlay.addEventListener('click', playPet);
+  const PetPlay = document.querySelector('#play');
+  PetPlay.addEventListener('click', () => {
+    savePetValues();
+    window.location = 'minigame.html';
+  });
 }
 
 // Fucntion that holds all the function that need to be executed on page loaded

@@ -5,14 +5,14 @@ function reset() {
 }
 
 function button() {
-  const ResetButton = document.querySelector('#reset');
+  const ResetButton = document.getElementById('reset');
   ResetButton.addEventListener('click', reset);
 }
 
 function init() {
   const pet = JSON.parse(localStorage.getItem('name'));
-  const petName = document.querySelector('#name');
-  const petAliveTime = document.querySelector('#timeAlive');
+  const petName = document.getElementById('name');
+  const petAliveTime = document.getElementById('timeAlive');
   petName.textContent = 'Your Pet ' + pet.name + ' is died.';
   petAliveTime.textContent = 'It was alive for ' + pet.aliveTime + ' minutes';
 }

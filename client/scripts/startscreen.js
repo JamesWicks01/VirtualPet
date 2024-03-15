@@ -7,7 +7,7 @@ function start() {
 // Function the makes the start button functionable and when the user clicks it
 // will call the start function.
 function init() {
-  const StartButton = document.querySelector('#start');
+  const StartButton = document.getElementById('start');
   StartButton.addEventListener('click', start);
 }
 

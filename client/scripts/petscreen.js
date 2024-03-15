@@ -18,10 +18,10 @@ const happiness = () => {
 // Function to display the pet's values in a meter element on the pet screen.
 function displayPetValue() {
   for (const [attr, value] of Object.entries(petValues)) {
-    const output = document.querySelector(`#${attr}Value`);
+    const output = document.getElementById(`${attr}Value`);
     output.value = value;
   }
-  const happinessOutput = document.querySelector('#happinessValue');
+  const happinessOutput = document.getElementById('happinessValue');
   happinessOutput.value = happiness();
 }
 // Function to decrease the pet's values with the value never going below zero.
@@ -76,13 +76,15 @@ function savePetValues() {
 
 // Function to load pet values from local storage when there is someting in local storage.
 function loadPetValues() {
-  if (localStorage.length > 0) {
+  if (localStorage.length > 1) {
     pet = JSON.parse(localStorage.getItem('name'));
     petValues = JSON.parse(localStorage.getItem('values'));
     console.log(localStorage.length);
     console.log('LOADED VALUES');
   } else {
-    console.log('NO VALUES TO LOAD');
+    localStorage.name = JSON.stringify(pet);
+    localStorage.values = JSON.stringify(petValues);
+    console.log(localStorage.length);
   }
 }
 
@@ -93,35 +95,35 @@ function petAlive() {
 
 // Function to set the pet's name and display it on the screen
 function handleInput(e) {
-  const output = document.querySelector('#name');
+  const output = document.getElementById('name');
   pet.name = e.target.value;
   output.textContent = e.target.value;
 }
 
 // Function to make the buttons on the page functional
 function button() {
-  const FeedPet = document.querySelector('#feed');
+  const FeedPet = document.getElementById('feed');
   FeedPet.addEventListener('click', () => {
     increaseAttr('hunger', 10);
   });
 
-  const BathPet = document.querySelector('#bath');
+  const BathPet = document.getElementById('bath');
   BathPet.addEventListener('click', () => {
     increaseAttr('cleanliness', 20);
   });
 
-  const SleepPet = document.querySelector('#sleep');
+  const SleepPet = document.getElementById('sleep');
   SleepPet.addEventListener('click', () => {
     increaseAttr('energy', 30);
   });
 
-  const ExitPet = document.querySelector('#exit');
+  const ExitPet = document.getElementById('exit');
   ExitPet.addEventListener('click', () => {
     window.location = '/';
     savePetValues();
   });
 
-  const PetPlay = document.querySelector('#play');
+  const PetPlay = document.getElementById('play');
   PetPlay.addEventListener('click', () => {
     savePetValues();
     window.location = 'minigame.html';
@@ -140,10 +142,10 @@ function init() {
   setInterval(petAlive, 60000);
   setInterval(petHealth, 1000);
   // Changes name of pet
-  const namechange = document.querySelector('#namechange');
+  const namechange = document.getElementById('namechange');
   namechange.addEventListener('input', handleInput);
   // Display the default pet's name when page is loaded
-  const petName = document.querySelector('#name');
+  const petName = document.getElementById('name');
   petName.textContent = pet.name;
 }
 
